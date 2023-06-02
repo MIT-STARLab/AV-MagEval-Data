@@ -124,8 +124,13 @@ hold on
 plot(test(start:end,12)-k2c,Xdelta(start:end)-Xoffset,'r-');
 plot(test(start:end,12)-k2c,Ydelta(start:end)-Yoffset,'g-');
 plot(test(start:end,12)-k2c,Zdelta(start:end)-Zoffset,'b-');
+xlim([35,65])
 legend("X","Y","Z");
 title("Temperature Dependence (constant subtracted)")
-xlabel("T (K)")
+xlabel("T (C)")
 ylabel("Field (uT)")
 hold off
+
+
+fit = polyfit(test(start:end,12)-k2c,Xdelta(start:end)-Xoffset,1);
+slope = fit(1)
